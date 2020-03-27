@@ -84,6 +84,7 @@ export default function Form() {
       [e.target.name]:
         e.target.type === "checkbox" ? e.target.checked : e.target.value
     };
+    console.log(errors);
 
     validateChange(e);
     setFormState(newFormData);

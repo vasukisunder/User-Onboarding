@@ -22,6 +22,25 @@ describe('Tests user onboarding form', function () {
         cy.get('button').click();
     })
 
+    it('Displays errors correctly', function () {
+        cy.get('input[name="name"]')
+        .type('A{backspace}');
+
+        cy.get('.error')
+        .should('be.visible')
+        .and('contain', "Name is a required field.");
+        
+        cy.get('input[name="email"]')
+        .type('hello');
+
+        cy.get('.error')
+        .should('be.visible')
+        .and('contain', "Invalid email address.");
+
+        
+        
+    })
+
     
 
 
